@@ -555,7 +555,7 @@ authentication: #{self[:authentication]}
       if token
         meta = {}
         meta.merge!(deploy.to_query) if deploy
-        meta[:component] = "web:#{Rails.env}"
+        meta[:component] = "web:#{ENV['SKYLIGHT_ENV']}"
         token += "|#{URI.encode_www_form(meta)}"
       end
 
